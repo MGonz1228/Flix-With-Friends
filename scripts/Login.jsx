@@ -50,29 +50,29 @@ export function Login()
 	return (
 		<div className="login-content">
 
-					<div className="title-text">
+			<div className="title-text">
 						FLIX WITH FRIENDS
-					</div>
+			</div>
 
-					<div className="header-text">
+			<div className="header-text">
 						Your favorite place to watch
-						<br />
+				<br />
 						Youtube with friends.
-					</div>
+			</div>
 
-					<div className='login-container'>
-						<div className='login'>
-							<div className="flex-item">
-								<FacebookButton />
-							</div>
-							<div className="flex-item">
-								<GoogleButton />
-							</div>
-							<div className="flex-item">
-								<TwitterButton />
-							</div>
-						</div>
+			<div className='login-container'>
+				<div className='login'>
+					<div className="flex-item">
+						<FacebookButton />
 					</div>
+					<div className="flex-item">
+						<GoogleButton />
+					</div>
+					<div className="flex-item">
+						<TwitterButton />
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }

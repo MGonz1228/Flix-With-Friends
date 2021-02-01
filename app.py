@@ -9,12 +9,13 @@ from flaskserver import FlaskServer
 from sqldb import SqlDb
 
 
-dotenv_path = os.path.join(os.path.dirname(__file__), 'sql.env')
+dotenv_path = os.path.join(os.path.dirname(__file__), "sql.env")
 load_dotenv(dotenv_path)
 
 db = SqlDb()
-if 'DATABASE_URL' in os.environ:
-    db.connect(SqlDb.uri_to_dsn(os.environ['DATABASE_URL']))
+if "DATABASE_URL" in os.environ:
+    db.connect(SqlDb.uri_to_dsn(os.environ["DATABASE_URL"]))
+
 
 def main():
     flaskserver = create_flask_server(db)
@@ -25,19 +26,16 @@ def main():
         flaskserver.db.commit()
         cur.close()
     else:
-        print('WARNING: database not connected!', file=sys.stderr)
+        print("WARNING: database not connected!", file=sys.stderr)
 
     flaskserver.run(
-        os.environ.get('IP', '0.0.0.0'),
-        int(os.environ.get('PORT', 8080)),
-        debug=True
+        os.environ.get("IP", "0.0.0.0"), int(os.environ.get("PORT", 8080)), debug=True
     )
+
 
 def create_flask_server(db_obj):
-    return FlaskServer(
-        flask.Flask(__name__),
-        db_obj
-    )
+    return FlaskServer(flask.Flask(__name__), db_obj)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

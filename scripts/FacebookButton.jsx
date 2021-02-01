@@ -2,8 +2,7 @@
 
 import * as React from 'react';
 import { Socket } from './Socket';
-import FacebookLogin from 'react-facebook-login'
-import { AwesomeButton } from 'react-awesome-button';
+import FacebookLogin from 'react-facebook-login';
 import './css/theme-eric.css';
 
 export function FacebookButton()

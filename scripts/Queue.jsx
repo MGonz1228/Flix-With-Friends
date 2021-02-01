@@ -1,3 +1,5 @@
+/* global require */
+
 import { QueuedVideo } from './QueuedVideo';
 import * as React from 'react';
 import { Socket } from './Socket';

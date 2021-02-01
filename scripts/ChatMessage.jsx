@@ -12,7 +12,7 @@ export function ChatMessage(props)
 				<span className='username'>{props.message.user.username}</span>
 				<span>:</span>
 			</div>
-				{/*<span className='right'>
+			{/*<span className='right'>
 					<span className='timestamp'>{timestampToStr(props.message.timestamp)}</span>
 				</span>*/}
 			<div>

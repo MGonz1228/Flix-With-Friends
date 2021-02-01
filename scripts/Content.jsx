@@ -12,7 +12,7 @@ import './css/content.css';
 
 export function Content()
 {
-	document.body.style.background = "#121212";
+	document.body.style.background = '#121212';
 	const userDetails = React.useContext(UserContext);
 	const updateUserDetails = React.useContext(UserDispatchContext);
 

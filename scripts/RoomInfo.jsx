@@ -2,12 +2,12 @@ import * as React from 'react';
 import { Socket } from './Socket';
 import { User } from './User';
 import { UserContext } from './UserProvider';
-import { Offline, Online } from "react-detect-offline";
+import { Offline, Online } from 'react-detect-offline';
 
 export function RoomInfo()
 {
+	//const [users, setUsers] = React.useState({});
 	const userDetails = React.useContext(UserContext);
-	const [users, setUsers] = React.useState({});
 	const [creator, setCreator] = React.useState('');
 	const [count, setCount] = React.useState(0);
 	const [alone, setAlone] = React.useState(false);
@@ -27,7 +27,7 @@ export function RoomInfo()
 
 				var activeUsers = info['users'];
 				setCount(Object.keys(activeUsers).length);
-				setUsers(activeUsers);
+				//setUsers(activeUsers);
 
 				var alone = count == 1 ? true : false;
 				setAlone(alone);

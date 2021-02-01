@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { Content } from './Content';
 import { Socket } from './Socket';
 import { UserContext, UserDispatchContext } from './UserProvider';
-import { AwesomeButtonProgress } from 'react-awesome-button';
 import './css/Options.css';
 import './css/theme-eric.css';
 
 
 export function Options()
 {
-	document.body.style.background = "black";
+	document.body.style.background = 'black';
 	const updateUserDetails = React.useContext(UserDispatchContext);
 	const [userFlag, setFlag] = useState(false);
 
@@ -83,25 +82,31 @@ export function Options()
 
 	return (
 		<>
-		<div className="title-text">
+			<div className="title-text">
 			FLIX WITH FRIENDS
-		</div>
-		<div className="options-wrapper">
-			<span id="welcome-message">Welcome, {firstName}. Ready to watch?</span>
-				<div className="join-room"> 
+			</div>
+			<div className="options-wrapper">
+				<span id="welcome-message">Welcome, {firstName}. Ready to watch?</span>
+				<div className="join-room">
 					<>
 						<input id="join-input" placeholder="Enter room code" onKeyUp={onKeyUp}></input>
-						<button id="join-button" onClick={() => { onRoomJoinClick(); }}>JOIN</button>
+						<button id="join-button" onClick={() =>
+						{
+							onRoomJoinClick();
+						}}>JOIN</button>
 					</>
 				</div>
-				<div id="create-room"> 
+				<div id="create-room">
 					<>
 						<span id="no-code">No code? </span>
-						<a id="create-room" onClick={() => { onRoomNewClick(); }}>Create a room.</a>
+						<a id="create-room" onClick={() =>
+						{
+							onRoomNewClick();
+						}}>Create a room.</a>
 					</>
 				</div>
-		</div>
-			<a href="https://github.com/gpeppel/flix-with-friends" target="_blank">
+			</div>
+			<a href="https://github.com/gpeppel/flix-with-friends" target="_blank" rel="noreferrer">
 				<img className="github-logo" src="/static/images/github.png" alt="Github link"></img>
 			</a>
 		</>

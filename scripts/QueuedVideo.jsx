@@ -1,23 +1,11 @@
+/* global process */
+
 import * as React from 'react';
 import { UserContext } from './UserProvider';
 import { Socket } from './Socket';
 import PropTypes from 'prop-types';
 import './css/queue.css';
 
-const getYoutubeTitle = require('get-youtube-title');
-
-function getVideoTitle(videoId)
-{
-	getYoutubeTitle(videoId, 'AIzaSyCkbgL9PnGUd5EBJQCtZVzGs_QweeJjVHw', function (err, title)
-	{
-		console.log(title);
-		const videoTitle = document.getElementById(videoId).getElementsByClassName('video_title')[0];
-		var title = fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=AIzaSyCkbgL9PnGUd5EBJQCtZVzGs_QweeJjVHw`)
-			.then(response => response.json())
-			.then(data => videoTitle.innerHTML = data['items'][0]['snippet']['title']);
-		//videoTitle.innerHTML = title;
-	});
-}
 
 export function QueuedVideo(props)
 {
@@ -37,6 +25,16 @@ export function QueuedVideo(props)
 			url: videoUrl,
 			roomId: roomID
 		});
+	}
+
+	function getVideoTitle(videoId)
+	{
+		const apiKey = process.env.YOUTUBE_API_KEY;
+		const videoTitle = document.getElementById(videoId).getElementsByClassName('video_title')[0];
+		fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`)
+			.then(response => response.json())
+			.then(data => videoTitle.innerHTML = data['items'][0]['snippet']['title']);
+		//videoTitle.innerHTML = title;
 	}
 
 	const userDetails = React.useContext(UserContext);

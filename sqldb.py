@@ -30,38 +30,35 @@ class SqlDb:
     @staticmethod
     def uri_to_dict(uri):
         match = re.fullmatch(
-            r'postgres(?:ql)?://'
-            r'(?:(?P<user>(?:[A-Za-z_]|%[0-9A-Fa-f]{2})(?:[A-Za-z0-9_]|%[0-9A-Fa-f]{2})*)'
-            r'(?::(?P<password>[^:@,/?=&]+))?@)?'
-            r'(?P<host>[^:@,/?=&]+)?(?::(?P<port>[0-9]+))?'
-            r'(?:/(?P<dbname>[^:@,/?=&]+))?'
-            r'(?:\?(?P<query>.*))?',
-            uri
+            r"postgres(?:ql)?://"
+            r"(?:(?P<user>(?:[A-Za-z_]|%[0-9A-Fa-f]{2})(?:[A-Za-z0-9_]|%[0-9A-Fa-f]{2})*)"
+            r"(?::(?P<password>[^:@,/?=&]+))?@)?"
+            r"(?P<host>[^:@,/?=&]+)?(?::(?P<port>[0-9]+))?"
+            r"(?:/(?P<dbname>[^:@,/?=&]+))?"
+            r"(?:\?(?P<query>.*))?",
+            uri,
         )
         if match is None:
             return None
 
         groups = match.groupdict()
 
-        if groups['port'] is not None:
-            port = int(groups['port'])
+        if groups["port"] is not None:
+            port = int(groups["port"])
             if port < 0 or port > 65535:
                 return None
 
-        query = groups['query']
-        del groups['query']
+        query = groups["query"]
+        del groups["query"]
 
         if query is not None:
             while True:
-                match = re.match(
-                    r'([A-Za-z0-9_]+)=([^&]*)&?',
-                    query
-                )
+                match = re.match(r"([A-Za-z0-9_]+)=([^&]*)&?", query)
                 if match is None:
                     break
 
                 groups[match[1]] = match[2]
-                query = query[match.end():]
+                query = query[match.end() :]
 
         return groups
 
@@ -75,10 +72,10 @@ class SqlDb:
             if len(val) == 0:
                 return "''"
 
-            val = val.replace('\\', '\\\\')
+            val = val.replace("\\", "\\\\")
             val = val.replace("'", "\\'")
 
-            if ' ' in val:
+            if " " in val:
                 return "'%s'" % val
             return val
 
