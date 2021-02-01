@@ -28,7 +28,7 @@ export function Chat()
 
 	function handleSubmit()
 	{
-		var messageInput = document.getElementById('messageInput');
+		var messageInput = document.getElementById('message-input');
 		var messageText = messageInput.value;
 
 		if(messageText.length > 0)
@@ -55,9 +55,10 @@ export function Chat()
 					messages.map((message) => (<ChatMessage key={message.message_id} message={message} />))
 				}
 			</div>
-
-			<input type='text' id='messageInput' placeholder='Message' onKeyPress={checkForEnter}></input>
-			<button type='submit' onClick={handleSubmit}>Send</button>
+			<div id='chat-bar'>
+				<input type='text' id='message-input' placeholder='Message' onKeyPress={checkForEnter}></input>
+				<button type='submit' id='message-send' onClick={handleSubmit}>SEND</button>
+			</div>
 		</div>
 	);
 }

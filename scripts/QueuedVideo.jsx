@@ -8,17 +8,19 @@ const getYoutubeTitle = require('get-youtube-title');
 
 function getVideoTitle(videoId)
 {
-	getYoutubeTitle(videoId, function (err, title)
+	getYoutubeTitle(videoId, 'AIzaSyCkbgL9PnGUd5EBJQCtZVzGs_QweeJjVHw', function (err, title)
 	{
 		console.log(title);
 		const videoTitle = document.getElementById(videoId).getElementsByClassName('video_title')[0];
-		videoTitle.innerHTML = title;
+		var title = fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=AIzaSyCkbgL9PnGUd5EBJQCtZVzGs_QweeJjVHw`)
+			.then(response => response.json())
+			.then(data => videoTitle.innerHTML = data['items'][0]['snippet']['title']);
+		//videoTitle.innerHTML = title;
 	});
 }
 
 export function QueuedVideo(props)
 {
-
 	function playNow(videoUrl, roomID)
 	{
 		Socket.emit('yt_load', {

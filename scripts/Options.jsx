@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Content } from './Content';
 import { Socket } from './Socket';
-import { UserDispatchContext } from './UserProvider';
+import { UserContext, UserDispatchContext } from './UserProvider';
 import { AwesomeButtonProgress } from 'react-awesome-button';
 import './css/Options.css';
 import './css/theme-eric.css';
@@ -9,8 +9,12 @@ import './css/theme-eric.css';
 
 export function Options()
 {
+	document.body.style.background = "black";
 	const updateUserDetails = React.useContext(UserDispatchContext);
 	const [userFlag, setFlag] = useState(false);
+
+	const userDetails = React.useContext(UserContext);
+	var firstName = userDetails.username.split(' ')[0];
 
 	function enterRoom()
 	{
@@ -23,7 +27,7 @@ export function Options()
 	{
 		Socket.emit('room_create', {
 			description: 'test room',
-			playlist: document.getElementById('playlist').value
+			playlist: 'none'
 		}, (data) =>
 		{
 			console.log('playlist -->');
@@ -47,7 +51,7 @@ export function Options()
 	function onRoomJoinClick()
 	{
 		Socket.emit('room_join', {
-			roomId: document.getElementById('roomCode').value
+			roomId: document.getElementById('join-input').value
 		}, (data) =>
 		{
 			console.log(data);
@@ -78,69 +82,28 @@ export function Options()
 	}
 
 	return (
-		<div className="options-wrapper">
-			<div className="box">
-				<div className="column" id="box-left">CREATE A NEW VIEWING ROOM<hr className='hr-line3' /></div>
-				<div className="column" id="box-right">JOIN A VIEWING ROOM NOW<hr className='hr-line4' /></div>
-			</div>
-			<div className="box">
-				<div className="column" id="box-left"><img src="/static/images/ticket.png" /></div>
-				<div className="column" id="box-right"><img src="/static/images/popcorn_icon.png" /></div>
-			</div>
-			<div className="box">
-				<div className="column" id="text-box-left">
-					<div>
-						<div className="row">
-							<span><input className="slide-up-left" onKeyUp={onKeyUp} id='playlist' type="text" placeholder="GOES HERE" />
-								<label htmlFor="card">URL</label></span>
-						</div>
-					</div>
-				</div>
-				<div className="column" id="text-box-right">
-					<div className="row">
-						<span><input className="slide-up-right" id='roomCode' onKeyUp={onKeyUp} type="text" placeholder="GOES HERE" />
-							<label htmlFor="card">CODE</label></span>
-					</div>
-				</div>
-			</div>
-			<div className="box">
-				<div className="column" id="box-left-btn">
-					<AwesomeButtonProgress
-						type='twitter2'
-						loadingLabel='I HOPE NOTHING BREAKS..'
-						releaseDelay={5000}
-						resultLabel='FOR A SECOND TIME'
-						onPress={() =>
-						{
-							onRoomNewClick();
-						}}
-					>
-					CREATE NEW VIEWING ROOM!
-					</AwesomeButtonProgress>
-				</div>
-				<div className="column" id="box-right-btn">
-					<AwesomeButtonProgress
-						type='whatsapp'
-						loadingLabel='JOINING...'
-						releaseDelay={6000} resultLabel='FOUND FRIENDS!'
-						onPress={() =>
-						{
-							onRoomJoinClick();
-						}}
-					>
-					JOIN VIEWING ROOM
-					</AwesomeButtonProgress>
-				</div>
-			</div>
-			<div className="box" id="box-last">
-				<div className="column" id="box-left"></div>
-				<div className="column" id="box-right-last">
-					COPY &amp; PASTE YOUR INVITATION CODE IN THE ABOVE BOX
-					<hr className='hr-line2'/>
-				</div>
-			</div>
-			<div className="box" id="box-last">
-			</div>
+		<>
+		<div className="title-text">
+			FLIX WITH FRIENDS
 		</div>
+		<div className="options-wrapper">
+			<span id="welcome-message">Welcome, {firstName}. Ready to watch?</span>
+				<div className="join-room"> 
+					<>
+						<input id="join-input" placeholder="Enter room code" onKeyUp={onKeyUp}></input>
+						<button id="join-button" onClick={() => { onRoomJoinClick(); }}>JOIN</button>
+					</>
+				</div>
+				<div id="create-room"> 
+					<>
+						<span id="no-code">No code? </span>
+						<a id="create-room" onClick={() => { onRoomNewClick(); }}>Create a room.</a>
+					</>
+				</div>
+		</div>
+			<a href="https://github.com/gpeppel/flix-with-friends" target="_blank">
+				<img className="github-logo" src="/static/images/github.png" alt="Github link"></img>
+			</a>
+		</>
 	);
 }

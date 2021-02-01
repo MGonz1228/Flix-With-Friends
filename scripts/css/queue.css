@@ -1,3 +1,56 @@
+@font-face {
+	font-family: 'SF Pro Regular';
+	src: url('/static/fonts/SF-Pro-Regular.woff2') format('woff2');
+}
+
+#queue-header {
+	font-family: SF Pro Regular;
+}
+
+#url-input {
+	background: #404040;
+	border-radius: 8px;
+	border:none;
+	line-height: 2;
+	width: 85%;
+	padding-left: 20px;
+
+	color: white;
+	font-size: 22px;
+}
+
+#url-input:focus {
+	outline: none;
+}
+
+#watch-now {
+	z-index: 2;
+	background: linear-gradient(90deg, #FFA5A5 -4.71%, #FDFFA6 100%);
+	border: none;
+	border-radius: 8px;
+	padding: 5px 20px;
+	margin: 10px;
+
+	font-family: SF Pro Regular;
+	color: #520D0D;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#enqueue {
+	z-index: 2;
+	background: linear-gradient(270deg, #FFA5A5 -4.71%, #FDFFA6 100%);
+	border: none;
+	border-radius: 8px;
+	padding: 5px 20px;
+	margin: 10px;
+
+	font-family: SF Pro Regular;
+	color: #520D0D;
+	font-weight: bold;
+	font-size: 20px;
+}
+
 .queueItem {
 	display: flex;
 	align-items: center;
@@ -40,13 +93,50 @@
 	height: 100%;
 }
 
-#queuedFeed {
+#queueFeed {
 	overflow: auto;
-	height: 400px;
+	height: 42vh;
 }
 .video_title {
-	font-size: 24px;
+	font-size: 16px;
 }
-#roomInfoBox {
-	font-size: 30px;
+
+#room-info-box {
+	font-size: 16px;
+}
+
+.room-connected {
+	margin: 0px 20px;
+	margin-top: 20px;
+	text-align: left;
+	font-family: SF Pro Regular;
+	font-weight: bold;
+	color: #289526;
+}
+
+.room-disconnected {
+	margin: 0px 20px;
+	margin-top: 20px;
+	text-align: left;
+	font-family: SF Pro Regular;
+	font-weight: bold;
+	color: #952628;
+}
+
+.room-info {
+	margin: 0px 20px;
+	text-align: left;
+	font-family: SF Pro Regular;
+}
+
+.room-count {
+	margin: 0px 20px;
+	text-align: left;
+	font-family: SF Pro Regular;
+	color: #FFA5A5;
+}
+
+#copy-button {
+	display: block;
+	margin: 4px 20px;
 }

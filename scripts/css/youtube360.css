@@ -1,13 +1,11 @@
 #control360-container {
-	display: inline-block;
-	border: 1px solid #222222;
-	border-radius: 5px;
-	background-color: #ffc300;
-	margin: 10px 0px 15px 0px;
-	padding: 15px;
-	color: #fff;
+	border: 0;
 
-	box-shadow: 2px 2px 2px 2px #22222266;
+	display: grid;
+
+	background-color: #1E1E1E;
+	color: #fff;
+	justify-content: center;
 }
 
 #control360-container .option {

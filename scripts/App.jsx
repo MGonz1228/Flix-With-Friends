@@ -8,9 +8,7 @@ export function App()
 {
 	return (
 		<div>
-			<Header />
 			<Login />
-			<Footer />
 		</div>
 	);
 }

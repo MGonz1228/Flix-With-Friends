@@ -48,32 +48,31 @@ export function Login()
 	}
 
 	return (
-		<div>
-			<div className='top'>
-				<div>
-					SIMPLE & EASY TO USE
-					<br />
-					GET STARTED BY CLICKING BELOW
-					<hr className='hr-line' />
+		<div className="login-content">
+
+					<div className="title-text">
+						FLIX WITH FRIENDS
+					</div>
+
+					<div className="header-text">
+						Your favorite place to watch
+						<br />
+						Youtube with friends.
+					</div>
 
 					<div className='login-container'>
 						<div className='login'>
 							<div className="flex-item">
-								<img className='login-img' src='static/images/fb_button.png' alt='fb' />
 								<FacebookButton />
 							</div>
 							<div className="flex-item">
-								<img className='login-img' src='static/images/google.png' alt='google' />
 								<GoogleButton />
 							</div>
 							<div className="flex-item">
-								<img className='login-img' src='static/images/twitter.png' alt='twitter' />
 								<TwitterButton />
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
 		</div>
 	);
 }

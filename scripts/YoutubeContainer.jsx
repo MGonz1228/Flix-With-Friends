@@ -229,7 +229,7 @@ export function YoutubeContainer()
 		<div>
 			{ytComponent}
 
-			{ isCreator(userDetails) ? (<Youtube360Controller player={ytPlayerRef.current} />) : (<div></div>) }
+			{/*{ isCreator(userDetails) ? (<Youtube360Controller player={ytPlayerRef.current} />) : (<div></div>) }*/}
 		</div>
 	);
 }

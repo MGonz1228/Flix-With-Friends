@@ -49,6 +49,7 @@ class LoginNamespace(flask_socketio.Namespace):
         if key in data['response'].keys():
             print("True")
             user.email = data['response']['email']
+            user.profile_url = data['response']['picture']['data']['url']
         else:
             print("False")
             user.email = data['response']['id']

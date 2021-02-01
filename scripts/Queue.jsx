@@ -35,7 +35,7 @@ export function Queue()
 		try
 		{
 			const submitId = event.target.getAttribute('id');
-			if (submitId === 'watchNow')
+			if (submitId === 'watch-now')
 			{
 				return EVENT_YT_LOAD;
 			} if (submitId === 'enqueue')
@@ -55,7 +55,7 @@ export function Queue()
 
 	function handleSubmit(event)
 	{
-		const urlInput = document.getElementById('urlInput');
+		const urlInput = document.getElementById('url-input');
 		const urlText = urlInput.value;
 
 		if (urlText.length > 0)
@@ -91,14 +91,15 @@ export function Queue()
 
 	function setPlaceholder()
 	{
-		const inputBox = document.getElementById('urlInput');
+		const inputBox = document.getElementById('url-input');
 		inputBox.placeholder = 'Enter YouTube URL';
 	}
 
 	return (
 		<div className="queue">
-			<input id="urlInput" onFocus={setPlaceholder} onBlur={setPlaceholder} onKeyUp={onKeyUp} placeholder="Enter YouTube URL" />
-			<button id="watchNow" type="submit" onClick={handleSubmit}>Watch Now</button>
+			<h1 id="queue-header">PLAYLIST</h1>
+			<input id="url-input" onFocus={setPlaceholder} onBlur={setPlaceholder} onKeyUp={onKeyUp} placeholder="Enter YouTube URL" />
+			<button id="watch-now" type="submit" onClick={handleSubmit}>Watch Now</button>
 			<button id="enqueue" type="submit" onClick={handleSubmit}>Add to Queue</button>
 			{/*	<button id="dequeue" type="submit" onClick={deQueue}>Remove from Queue (test button)</button>*/}
 			<div id='queueFeed'>

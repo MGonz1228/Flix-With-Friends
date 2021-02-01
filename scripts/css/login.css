@@ -1,57 +1,86 @@
 @font-face {
-    font-family: 'greggiefont';
-    src: url('/static/fonts/greggiefont-webfont.eot');
-    src: url('/static/fonts/greggiefont-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/static/fonts/greggiefont-webfont.woff2') format('woff2'),
-         url('/static/fonts/greggiefont-webfont.woff') format('woff'),
-         url('/static/fonts/greggiefont-webfont.svg#greggiefont') format('svg');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'SF Pro Regular';
+	src: url('/static/fonts/SF-Pro-Regular.woff2') format('woff2');
 }
 
 body {
-	font-family: 'greggiefont';
 	width: 100%;
+	height: 100%;
+	background: url(/static/images/theater.jpg); 
+	/*linear-gradient(180deg, #2B1B0B 0%, rgba(0, 0, 0, 0.17) 99.99%, rgba(0, 0, 0, 0.11) 100%), url(/static/images/theater.jpg), #0F0F0F;*/
+	background-repeat: no-repeat;
+	background-size: 101% 105%;
 }
 
 .login-container {
-	width: 100%;
+	width: 98%;
+}
+
+.login-content {
+	margin-top:0%;
+}
+
+.title-text {
+	width: 50%;
+	height: 5%;
+
+	font-family: SF Pro Regular;
+	font-style: normal;
+	font-weight: 1000;
+	font-size: 64px;
+	line-height: 76px;
+	text-align:center;
+	letter-spacing:8px;
+
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 3%;
+
+	background-image: linear-gradient(90deg, #FFA5A5 -4.71%, #FDFFA6 100%);
+	background-size: 100%;
+	background-repeat: repeat;
+
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent; 
+	-moz-background-clip: text;
+	-moz-text-fill-color: transparent;
+}
+
+.header-text {
+	width: 50%;
+	height: 10%;
+
+	font-family: Nunito Sans;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 48px;
+	line-height: 65px;
+	text-align: center;
+	align: center;
+
+	margin-bottom:5%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:8%;
+
+
+	color: #FFFFFF;
 }
 
 .login {
+	width:50%;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-evenly;
-
 	padding-bottom: 50px;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 .login .login-img {
 	display: block;
 	margin: 20px auto;
-}
-
-.top {
-	/* border-bottom: 50px solid #ffc341; */
-	padding-top: 50px;
-	font-family: 'greggiefont';
-	color: #eee;
-	font-size: 100px;
-	text-align: center;
-}
-
-.top > div {
-	display: inline-block;
-}
-
-.bottom {
-	padding-top: 300px;
-	background-color: #eea1b8;
-	padding-top: 50px;
-	font-family: 'greggiefont';
-	color: #eee;
-	font-size: 100px;
 }
 
 .hr-line {

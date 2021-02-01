@@ -4,6 +4,10 @@ body {
 	margin: 0px;
 }
 
+button:focus {
+	outline: none;
+}
+
 .main-header {
 	padding: 20px;
 	background: #333333;
@@ -14,16 +18,23 @@ body {
 }
 
 .main-content {
+	height: 85vh;
+	
 	display: flex;
+	position: absolute;
+	top: 50%;
+
 	flex: 1;
+	flex-direction: row-reverse;
 	font-size: 20px;
+	transform: translateY(-50%);
 }
 
 .main-panel {
 	display: flex;
 	flex-direction: column;
 	flex: 1;
-	background-color: #ffc300;
+	background-color: #1E1E1E;
 	color: #fff;
 	font-size: 14px;
 }
@@ -34,7 +45,7 @@ body {
 	align-items: center;
 	flex: 2;
 
-	margin: 5px 20px;
+	height:100%;
 }
 
 .footer {
@@ -45,3 +56,13 @@ body {
 	color: white;
 	text-align: center;
   }
+
+iframe {
+/*	width: 1024px;
+	height: 576px;
+	display: flex;
+*/
+	width: 56vw;
+	height:85vh;
+	display: flex;
+}

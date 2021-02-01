@@ -12,6 +12,7 @@ import './css/content.css';
 
 export function Content()
 {
+	document.body.style.background = "#121212";
 	const userDetails = React.useContext(UserContext);
 	const updateUserDetails = React.useContext(UserDispatchContext);
 
@@ -32,34 +33,21 @@ export function Content()
 		Socket.emit('user_join', {});
 	}, []);
 
-	function copyRoomId()
-	{
-		const input = document.createElement('input');
-		input.value = userDetails.room.id;
-
-		document.body.appendChild(input);
-		input.select();
-		document.execCommand('copy');
-		document.body.removeChild(input);
-
-		alert('Copied Room ID ' + userDetails.room.id);
-	}
 
 	return (
 		<div className='main-content'>
 			<div className='main-panel'>
-				<Chat />
 				<RoomInfo />
+				<Chat />
 			</div>
 			<div className='media-area'>
 				<YoutubeContainer />
-				<button onClick={copyRoomId} id='btnID'>Copy Room ID</button>
 			</div>
 			<div className='main-panel'>
 				<div>
-					<HostOptions />
-					<br></br>
 					<Queue />
+					<br></br>
+					<HostOptions />
 				</div>
 			</div>
 		</div>
