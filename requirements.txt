@@ -1,5 +1,5 @@
 Flask
-flask-socketio
+flask-socketio==4.3.1
 google-api-python-client
 psycopg2-binary
 python-dotenv
