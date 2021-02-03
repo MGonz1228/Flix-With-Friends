@@ -1,5 +1,6 @@
 Flask
 flask-socketio
+python-engineio
 google-api-python-client
 psycopg2-binary
 python-dotenv
