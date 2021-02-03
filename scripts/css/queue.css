@@ -25,7 +25,7 @@
 
 #watch-now {
 	z-index: 2;
-	background: linear-gradient(90deg, #FFA5A5 -4.71%, #FDFFA6 100%);
+	background: linear-gradient(90deg, #FFA5A5 -4.71%, #FDFFA6 150%);
 	border: none;
 	border-radius: 8px;
 	padding: 5px 20px;
@@ -39,7 +39,7 @@
 
 #enqueue {
 	z-index: 2;
-	background: linear-gradient(270deg, #FFA5A5 -4.71%, #FDFFA6 100%);
+	background: linear-gradient(270deg, #FFA5A5 -4.71%, #FDFFA6 150%);
 	border: none;
 	border-radius: 8px;
 	padding: 5px 20px;
