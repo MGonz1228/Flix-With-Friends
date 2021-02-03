@@ -1,8 +1,10 @@
 # Flix With Friends
 ![travis build](https://travis-ci.com/gpeppel/flix-with-friends.svg?token=yKryxn23AXzDQ7RBndwC&branch=master)
 
+This is a redesigned version of our original project [here](https://github.com/gpeppel/flix-with-friends).
+
 # Heroku Link:
-[Flix With Friends](https://flix-with-friends.herokuapp.com/)
+[Flix With Friends](https://flix-redux.herokuapp.com/)
 
 Watch videos with friends at the same time remotely!
 
@@ -308,7 +310,7 @@ Incomplete:
 ---
 
 Matt Gonzalez:
-* Set up chat functionality
-* Integrated Facebook user info into chat frontend
-* Added simple styling to chat sidebar and messages
+* Implemented chat and playlist functionality
+* Integrated OAuth user data into frontend
+* Redesigned from the ground up 
 * Helped with general backend logic
