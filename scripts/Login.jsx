@@ -1,9 +1,10 @@
-
 import * as React from 'react';
 import { Options } from './Options';
-import { FacebookButton } from './FacebookButton';
 import { GoogleButton } from './GoogleButton';
+{/*
+import { FacebookButton } from './FacebookButton';
 import { TwitterButton } from './TwitterButton';
+*/}
 import { Socket } from './Socket';
 import { UserDispatchContext } from './UserProvider';
 
@@ -62,15 +63,22 @@ export function Login()
 
 			<div className='login-container'>
 				<div className='login'>
+					{/*
 					<div className="flex-item">
 						<FacebookButton />
 					</div>
+					*/}
+
 					<div className="flex-item">
 						<GoogleButton />
 					</div>
+
+					{/*
 					<div className="flex-item">
 						<TwitterButton />
 					</div>
+					*/}
+
 				</div>
 			</div>
 		</div>
