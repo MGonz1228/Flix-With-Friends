@@ -3,7 +3,6 @@ import { Content } from './Content';
 import { Socket } from './Socket';
 import { UserContext, UserDispatchContext } from './UserProvider';
 import './css/Options.css';
-import './css/theme-eric.css';
 
 
 export function Options()

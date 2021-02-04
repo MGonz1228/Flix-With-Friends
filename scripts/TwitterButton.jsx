@@ -3,7 +3,6 @@
 import * as React from 'react';
 import { Socket } from './Socket';
 import TwitterLogin from 'react-twitter-login';
-import './css/theme-eric.css';
 
 export function TwitterButton()
 {

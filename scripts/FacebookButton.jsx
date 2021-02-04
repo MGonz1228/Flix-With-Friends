@@ -3,7 +3,6 @@
 import * as React from 'react';
 import { Socket } from './Socket';
 import FacebookLogin from 'react-facebook-login';
-import './css/theme-eric.css';
 
 export function FacebookButton()
 {
