@@ -9,11 +9,15 @@ class Video(Base):
 
     def insert_to_db(self, cur):
         cur.execute("""
-            INSERT INTO video VALUES (%s, %s, %s)
-            ON CONFLICT (video_id) DO NOTHING;
+            INSERT INTO video 
+            SELECt %s, %s, %s
+            WHERE NOT EXISTS
+                (SELECT video_id from video WHERE video_id = %s AND playlist_id = %s);
         """, (
             self.video_id,
             self.video_source,
+            self.playlist_id,
+            self.video_id,
             self.playlist_id
         ))
 

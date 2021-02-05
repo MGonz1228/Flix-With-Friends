@@ -109,7 +109,7 @@ export function YoutubeContainer()
 				break;
 			}
 
-			if(isCreator(userDetails) && ytPlayerRef.current.isVideoFinished())
+			if(isCreator(userDetails) && ytPlayerRef.current.isVideoFinished() && ytPlayerRef.current.player.getDuration() != 0) 
 			{
 				if(userDetails.room.playlist && userDetails.room.playlist.videos.length > 0)
 				{
@@ -125,7 +125,6 @@ export function YoutubeContainer()
 							url: userDetails.room.playlist.videos[0].video_source,
 							roomId: userDetails.room.id
 						});
-
 					}
 				}
 			}
